@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Il duo delle lontre</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Label che segue il cursore (solo su hover easter egg) -->
+  <div id="cursorLabel" class="cursor-label"></div>
+
+  <!-- SCHERMATA 1 -->
+  <section id="screen1" class="screen">
+    <div class="hero">
+      <h1>Ho una domandina per te...</h1>
+      <button id="startBtn" class="btn-outline">ok</button>
+    </div>
+
+    <!-- Easter egg: immagini cliccabili -->
+    <img src="intimo.png" id="intimo" class="easter-img" alt="Easter egg intimo" />
+    <img src="bottiglia.png" id="bottiglia" class="easter-img" alt="Easter egg bottiglia" />
+  </section>
+
+  <!-- SCHERMATA 2 -->
+  <section id="screen2" class="screen hidden" aria-live="polite">
+    <div class="card">
+      <div class="card-inner">
+        <img class="anim" src="otter.png" alt="Gif carina" />
+        <h2 class="question">Will you be my valentine?</h2>
+
+        <div class="options" role="group" aria-label="Opzioni">
+          <button class="option" data-choice="A">
+            <div class="badge">A</div><div class="opt-text">Sì</div>
+          </button>
+          <button class="option" data-choice="B">
+            <div class="badge">B</div><div class="opt-text">A</div>
+          </button>
+          <button class="option" data-choice="C">
+            <div class="badge">C</div><div class="opt-text">B</div>
+          </button>
+          <button class="option" data-choice="D">
+            <div class="badge">D</div><div class="opt-text">C</div>
+          </button>
+        </div>
+
+        <p class="hint">Hihihi... tanto non hai scelta 💗</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHERMATA 3 -->
+  <section id="screen3" class="screen hidden" aria-live="polite">
+    <canvas id="confetti"></canvas>
+
+    <div class="card">
+      <div class="card-inner">
+        <h2 class="yay">Yayyyy!</h2>
+        <p class="subyay">Ottima scelta, hai vinto <b>+200 bacetti</b> 💋</p>
+        <video class="anim" autoplay loop muted playsinline>
+            <source src="yay.mov" type="video/mp4">
+        </video>
+        <button class="btn-outline backHome">Torna alla home</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHERMATA 4 (spicy) -->
+  <section id="screen4" class="screen hidden" aria-live="polite">
+  <div class="card">
+    <div class="card-inner">
+      <h2 class="question">Sicuro di voler aprire?</h2>
+
+      <img id="envelope" class="envelope" src="busta.png" alt="Busta" />
+
+      <button class="btn-outline backHome">Torna alla home</button>
+    </div>
+  </div>
+</section>
+
+  <!-- SCHERMATA 5 (lettera) -->
+  <section id="screen5" class="screen hidden" aria-live="polite">
+    <div class="card letter">
+      <div class="card-inner">
+        <h2 class="question">💌 Messaggino sdolcinato</h2>
+
+        <div class="letter-paper">
+          <p>
+            Ahahahah no questa era uno scherzetto ❤️<br/>
+            I messaggi sdolcinati sono troppo davvero, però sappi che ti mando tanti bacetti, e aspetto tanto tanto lunedì per vederti di nuovooo.
+          </br>Miss u very much 
+          </p>
+        </div>
+
+        <button class="btn-outline backHome">Torna alla home</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHERMATA 6 (contenuto su WhatsApp) -->
+<section id="screen6" class="screen hidden" aria-live="polite">
+  <div class="card">
+    <div class="card-inner">
+      <p class="subyay">
+        Per il contenuto bisogna mandare su WhatsApp lo sticker più dolce che si possiede 🥺💗
+      </p>
+
+      <button class="btn-outline backHome">Torna alla home</button>
+    </div>
+  </div>
+</section>
+
+  <script src="script.js"></script>
+</body>
+</html>

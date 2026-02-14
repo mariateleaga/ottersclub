@@ -1,0 +1,251 @@
+:root{
+  --colore1:#edcdd4;
+  --colore2:#a00006;
+
+  --panel: rgba(255,255,255,0.35);
+  --panel-strong: rgba(255,255,255,0.55);
+  --shadow: 0 18px 40px rgba(160, 0, 6, 0.15);
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:var(--colore2);
+
+  background-color:var(--colore1);
+  background-image:url("sfondo.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  cursor: url("frog-cursor.cur"), auto;
+}
+
+/* Forza il cursore rana sugli elementi interattivi (niente manina) */
+a, button, .option, .btn-outline, .easter-img, #envelope{
+  cursor: url("frog-cursor.cur"), pointer;
+}
+a:hover, button:hover, .option:hover, .btn-outline:hover, .easter-img:hover, #envelope:hover{
+  cursor: url("frog-cursor.cur"), pointer;
+}
+
+.screen{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  position:relative;
+}
+
+.hidden{ display:none; }
+
+/* SCHERMATA 1 */
+.hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  text-align:center;
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(2rem, 4.5vw, 3rem);
+  line-height:1.1;
+}
+
+/* BOTTONI */
+.btn-outline{
+  background:transparent;
+  color:var(--colore2);
+  border:2px solid var(--colore2);
+  padding:12px 30px;
+  font-size:1.1rem;
+  border-radius:999px;
+  transition:0.25s ease;
+}
+.btn-outline:hover{
+  background:var(--colore2);
+  color:white;
+}
+
+/* CARD */
+.card{
+  width:min(720px, 92vw);
+  background: var(--panel);
+  border: 2px solid rgba(160,0,6,0.20);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow:hidden;
+}
+
+.card-inner{
+  padding: 26px 20px 22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  text-align:center;
+}
+
+.anim{
+  width:min(320px, 75vw);
+  height:auto;
+  display:block;
+  filter: drop-shadow(0 10px 18px rgba(160,0,6,0.12));
+}
+
+.question{
+  margin:0;
+  font-size:clamp(1.6rem, 3.6vw, 2.2rem);
+  line-height:1.2;
+}
+
+/* opzioni */
+.options{
+  width:100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+  margin-top:6px;
+}
+
+.option{
+  border:none;
+  background: var(--panel-strong);
+  border: 2px solid rgba(160,0,6,0.22);
+  border-radius: 18px;
+  padding: 14px 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-align:left;
+  box-shadow: 0 10px 18px rgba(160,0,6,0.08);
+  transition: transform .12s ease, background .2s ease, border-color .2s ease;
+}
+.option:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.70);
+  border-color: rgba(160,0,6,0.35);
+}
+
+.badge{
+  width:38px;
+  height:38px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  letter-spacing:0.5px;
+  background: var(--colore2);
+  color: white;
+  flex:0 0 38px;
+}
+.opt-text{
+  font-size:1.05rem;
+  font-weight:650;
+  color: var(--colore2);
+}
+
+.hint{
+  margin: 6px 0 0;
+  font-size:0.95rem;
+  opacity:0.85;
+}
+
+/* SCHERMATA 3 testo */
+.yay{
+  margin:0;
+  font-size:clamp(2.2rem, 5vw, 3.2rem);
+  line-height:1.05;
+}
+.subyay{
+  margin:0;
+  font-size:clamp(1.1rem, 2.4vw, 1.35rem);
+  opacity:0.95;
+}
+
+/* confetti canvas */
+#confetti{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+/* responsive */
+@media (max-width:520px){
+  .options{ grid-template-columns:1fr; }
+}
+
+/* Easter egg immagini */
+.easter-img{
+  position:absolute;
+  width:120px;
+  height:auto;
+  transition: transform .2s ease, filter .2s ease;
+}
+#intimo{ top:-7%; right:32%; width:225px; }
+#bottiglia{ bottom:21%; left:19%; width:225px;}
+
+.easter-img:hover{
+  transform: scale(1.08);
+  filter: drop-shadow(0 8px 14px rgba(160,0,6,0.15));
+}
+
+/* label vicino cursore */
+.cursor-label{
+  position:fixed;
+  pointer-events:none;
+  background:white;
+  border:1px solid var(--colore2);
+  color:var(--colore2);
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:8px;
+  transform:translate(14px,14px);
+  display:none;
+  box-shadow: 0 10px 18px rgba(160,0,6,0.08);
+}
+
+/* busta */
+.envelope{
+  width:700px;
+  height:auto;
+  display:block;
+  transition: transform .15s ease;
+}
+.envelope:hover{
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* lettera */
+.letter .card-inner{
+  gap:14px;
+}
+.letter-paper{
+  width:min(520px, 85vw);
+  background: rgba(255,255,255,0.70);
+  border: 1px solid rgba(160,0,6,0.18);
+  border-radius: 18px;
+  padding: 16px 18px;
+  text-align:left;
+  line-height:1.5;
+}
+
+#screen6 .subyay{
+  max-width: 520px;
+}
+
+/* Forza il cursore rana anche sugli elementi interattivi */
+a, button, .option, .btn-outline, .easter-img, #envelope {
+  cursor: url("frog-cursor.cur") 16 16, pointer;
+}
+
+/* Se hai ancora regole cursor:pointer in giro, questa vince */
+a:hover, button:hover, .option:hover, .btn-outline:hover, .easter-img:hover, #envelope:hover {
+  cursor: url("frog-cursor.cur"), pointer;
+}
